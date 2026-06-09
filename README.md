@@ -30,9 +30,9 @@ A hybrid AI framework that uses autonomous agents to debate complex legal and po
 | Data | pandas, JSON |
 | Concurrency | concurrent.futures |
 
----
-
 ## 📂 Project Structure
+
+~~~
 ├── agents/               # Pro and Con argument generation
 ├── dataset/              # Training data and feature engineering
 ├── evaluation/           # BLEU/ROUGE scoring and baseline comparisons
@@ -43,7 +43,7 @@ A hybrid AI framework that uses autonomous agents to debate complex legal and po
 ├── vector_db/            # FAISS store and memory management
 ├── app.py                # Streamlit frontend
 └── README.md
----
+~~~
 
 ## ⚙️ How It Works
 
