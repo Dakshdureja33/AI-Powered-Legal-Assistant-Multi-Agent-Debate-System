@@ -1,108 +1,59 @@
 # ⚖️ AI-Powered Legal Assistant: Multi-Agent Debate System
 
-A hybrid AI framework that uses autonomous agents to debate complex legal and policy questions. The system combines rule-based scoring, machine learning, and LLMs to evaluate arguments and deliver transparent, bias-reduced decisions.
+An advanced, hybrid AI framework that utilizes autonomous agents to dialectically debate complex legal and policy questions. The system leverages a multi-tiered evaluation pipeline combining deterministic rules, machine learning, and Large Language Models (LLMs) to intelligently analyze and select the most logically sound arguments.
 
----
+## 🚀 Key Features 
 
-## 🚀 Features
-
-- **Multi-Agent Debate** — Autonomous Pro and Con agents generate structured arguments (Point → Reason → Impact) in parallel using multi-threading.
-- **3-Tier Hybrid Judge** — Rule-based scoring → ML prediction → LLM tiebreaker for conflict resolution.
-- **FAISS Vector Memory** — Debates are embedded with `sentence-transformers` and stored in a live FAISS index for semantic retrieval and deduplication.
-- **LoRA Fine-Tuning** — Custom-trained lightweight adapter outperforms base models on structure and reasoning depth.
-- **SHAP Explainability** — ML predictions are explained using SHAP values for transparency.
-- **Streamlit Dashboard** — Interactive UI with live debate arena, RAG search, evaluation metrics, and real-time model comparison.
-
----
-
-## 🛠️ Tech Stack
-
-| Category | Tools |
-|---|---|
-| Language | Python |
-| Frontend | Streamlit |
-| Vector DB | FAISS |
-| Embeddings | sentence-transformers |
-| ML Model | scikit-learn |
-| Fine-Tuning | LoRA (PEFT) |
-| Explainability | SHAP |
-| Evaluation | BLEU, ROUGE |
-| Data | pandas, JSON |
-| Concurrency | concurrent.futures |
+* **🤖 Autonomous Debate Generation**: Pro and Con agents automatically generate structured, multi-dimensional arguments for any given prompt.
+* **⚖️ Hybrid Judge System**: A robust 3-tier evaluation mechanism:
+  * **Rule-Based Scoring**: Evaluates structural complexity, length, and keyword reasoning.
+  * **Machine Learning Prediction**: Pattern recognition utilizing extracted features to predict the strongest argument. 
+  * **LLM Tiebreaker**: Resolves mathematical ties via deep semantic analysis.
+* **🧠 Dynamic FAISS Vector Memory**: The system learns over time. Debates are autonomously embedded (using `sentence-transformers`) and stored in a live FAISS index, allowing the system to retrieve past context and avoid duplicates.
+* **📊 Interactive Streamlit Dashboard**: A clean frontend featuring a live Debate Arena, real-time comparison metrics (Raw vs. Prompt vs. Hybrid), and academic evaluation dashboards.
+* **🚀 LoRA Fine-Tuning**: Integrates custom-trained, lightweight models that consistently outperform base models in structural formatting and reasoning depth.
 
 ## 📂 Project Structure
 
-~~~
-├── agents/               # Pro and Con argument generation
-├── dataset/              # Training data and feature engineering
-├── evaluation/           # BLEU/ROUGE scoring and baseline comparisons
-├── finetune/             # LoRA fine-tuning scripts and adapter
-├── judge/                # Rule-based judge and LLM tiebreaker
-├── ml/                   # ML model for argument prediction
-├── orchestrator/         # Core hybrid pipeline
-├── vector_db/            # FAISS store and memory management
-├── app.py                # Streamlit frontend
-└── README.md
-~~~
+```text 
+├── agents/             # Pro and Con argument generation logic
+├── dataset/            # Training datasets and feature engineering tools
+├── evaluation/         # Academic metrics, BLEU/ROUGE scoring, and baselines
+├── finetune/           # LoRA fine-tuning scripts for the LLM
+├── judge/              # Hybrid evaluation logic (Rule-based & LLM tiebreaker)
+├── ml/                 # Machine learning models for pattern prediction
+├── orchestrator/       # Core pipeline integrating agents, memory, and judges
+├── vector_db/          # FAISS vector database and dynamic memory storage
+├── app.py              # Streamlit frontend dashboard
+└── README.md           # Project documentation
+```
 
-## ⚙️ How It Works
+## ⚙️ How It Works (Pipeline)
 
-1. **Input** — User submits a legal or policy question.
-2. **Retrieval** — FAISS searches for similar past debates to provide context.
-3. **Generation** — Pro and Con agents generate structured arguments in parallel.
-4. **Evaluation** — The hybrid judge scores arguments via:
-   - Rule-based structural scoring
-   - ML pattern prediction
-   - LLM tiebreaker (on conflict or near-equal scores)
-5. **Memory** — Non-duplicate debates are saved to the FAISS index.
-6. **Output** — Winner, scores, reasoning, and SHAP explanation are displayed.
-
----
-
-## 📊 Evaluation Results
-
-| Metric | Score |
-|---|---|
-| BLEU | 0.49 |
-| ROUGE-1 | 0.66 |
-| ROUGE-2 | 0.51 |
-| ROUGE-L | 0.60 |
-
-Hybrid pipeline outperformed raw LLM baseline by **3×** on structure and reasoning metrics (3.8/4 vs. 1.2/4).
-
----
+1. **Input**: A stakeholder or user submits a complex question.
+2. **Context Retrieval**: The system queries the FAISS database to surface similar historical debates.
+3. **Agent Generation**: Pro and Con agents generate arguments, explicitly outlining the *Point*, *Reason*, and *Impact*.
+4. **Evaluation**: The Hybrid Judge mathematically and semantically evaluates the arguments.
+5. **Memory Storage**: Non-duplicate debates are permanently stored into the live FAISS memory.
+6. **Decision**: The optimal policy decision and metrics are presented on the frontend. 
 
 ## 🌍 Real-World Application
 
-Designed for **policy decision support** — helps stakeholders analyze complex issues by automating the dialectical process, reducing cognitive bias, and providing a transparent, evidence-driven breakdown of both sides.
+This system provides substantial value in **Policy Decision Support**. By automating the dialectical process, it actively reduces human cognitive bias, improves decision transparency, and provides policymakers with a clear, balanced, and evidence-driven overview of complex issues.
 
----
+## ⚠️ System Limitations
 
-## ⚠️ Limitations
-
-- Output quality depends heavily on prompt design.
-- ML model trained on a synthetic dataset, which may introduce bias.
-- No external RAG; agents lack real-time factual grounding.
-- BLEU/ROUGE measure lexical overlap, not logical depth.
-- Uses lightweight local models due to computational constraints.
-
----
+For rigorous academic evaluation, note the following constraints:
+* **Prompt Dependence:** Output quality relies heavily on initial prompt engineering.
+* **Synthetic Bias:** The training dataset is synthetically generated, which may introduce predictive biases.
+* **No External RAG:** The system lacks real-time factual grounding via external web search.
+* **Lightweight Models:** Relies on local, lightweight models rather than large-scale commercial foundational models.
 
 ## 💻 Getting Started
 
-bash
-# Clone the repository
-git clone https://github.com/your-username/Ai-Powered-Legal-Assistant.git
-cd Ai-Powered-Legal-Assistant
+To run the interactive dashboard locally:
 
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the app
+```bash
+# Start the Streamlit frontend
 streamlit run app.py
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
+```
